@@ -1,0 +1,155 @@
+{
+  "total_incidents": 13,
+  "validated_reports": 7,
+  "missing_or_invalid_reports": 6,
+  "ai_accuracy_on_validated_reports": 1.0,
+  "ai_end_to_end_success_rate": 0.5385,
+  "baseline_accuracy": 0.7692,
+  "evidence_validation_pass_rate": 0.5385,
+  "scenario_results": [
+    {
+      "scenario": "case_0201",
+      "actual_root_cause": "mechanical_jam",
+      "ai_prediction": "mechanical_jam",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "mechanical_jam",
+      "baseline_correct": true,
+      "report_error": null
+    },
+    {
+      "scenario": "case_0202",
+      "actual_root_cause": "temperature_sensor_fault",
+      "ai_prediction": "temperature_sensor_fault",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "unknown",
+      "baseline_correct": false,
+      "report_error": null
+    },
+    {
+      "scenario": "case_0301",
+      "actual_root_cause": "mechanical_jam",
+      "ai_prediction": "mechanical_jam",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "mechanical_jam",
+      "baseline_correct": true,
+      "report_error": null
+    },
+    {
+      "scenario": "case_0302",
+      "actual_root_cause": "cooling_flow_loss",
+      "ai_prediction": "cooling_flow_loss",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "cooling_flow_loss",
+      "baseline_correct": true,
+      "report_error": null
+    },
+    {
+      "scenario": "case_0303",
+      "actual_root_cause": "temperature_sensor_fault",
+      "ai_prediction": null,
+      "ai_correct": false,
+      "evidence_passed": false,
+      "ai_end_to_end_success": false,
+      "baseline_prediction": "unknown",
+      "baseline_correct": false,
+      "report_error": "No checked investigation"
+    },
+    {
+      "scenario": "case_0304",
+      "actual_root_cause": "no_fault",
+      "ai_prediction": null,
+      "ai_correct": false,
+      "evidence_passed": false,
+      "ai_end_to_end_success": false,
+      "baseline_prediction": "no_fault",
+      "baseline_correct": true,
+      "report_error": "No checked investigation"
+    },
+    {
+      "scenario": "case_0305",
+      "actual_root_cause": "cooling_flow_loss",
+      "ai_prediction": null,
+      "ai_correct": false,
+      "evidence_passed": false,
+      "ai_end_to_end_success": false,
+      "baseline_prediction": "cooling_flow_loss",
+      "baseline_correct": true,
+      "report_error": "No checked investigation"
+    },
+    {
+      "scenario": "case_0306",
+      "actual_root_cause": "no_fault",
+      "ai_prediction": null,
+      "ai_correct": false,
+      "evidence_passed": false,
+      "ai_end_to_end_success": false,
+      "baseline_prediction": "no_fault",
+      "baseline_correct": true,
+      "report_error": "No checked investigation"
+    },
+    {
+      "scenario": "case_0307",
+      "actual_root_cause": "mechanical_jam",
+      "ai_prediction": null,
+      "ai_correct": false,
+      "evidence_passed": false,
+      "ai_end_to_end_success": false,
+      "baseline_prediction": "mechanical_jam",
+      "baseline_correct": true,
+      "report_error": "No checked investigation"
+    },
+    {
+      "scenario": "case_0308",
+      "actual_root_cause": "temperature_sensor_fault",
+      "ai_prediction": null,
+      "ai_correct": false,
+      "evidence_passed": false,
+      "ai_end_to_end_success": false,
+      "baseline_prediction": "unknown",
+      "baseline_correct": false,
+      "report_error": "No checked investigation"
+    },
+    {
+      "scenario": "cooling_failure",
+      "actual_root_cause": "cooling_flow_loss",
+      "ai_prediction": "cooling_flow_loss",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "cooling_flow_loss",
+      "baseline_correct": true,
+      "report_error": null
+    },
+    {
+      "scenario": "mechanical_jam",
+      "actual_root_cause": "mechanical_jam",
+      "ai_prediction": "mechanical_jam",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "mechanical_jam",
+      "baseline_correct": true,
+      "report_error": null
+    },
+    {
+      "scenario": "normal",
+      "actual_root_cause": "no_fault",
+      "ai_prediction": "no_fault",
+      "ai_correct": true,
+      "evidence_passed": true,
+      "ai_end_to_end_success": true,
+      "baseline_prediction": "no_fault",
+      "baseline_correct": true,
+      "report_error": null
+    }
+  ],
+  "evaluation_type": "synthetic_development_benchmark"
+}

@@ -1,0 +1,5 @@
+record_id,timestamp,machine_id,component,maintenance_type,observation,status
+MNT-101,2025-12-19T09:00:00,conveyor_2,conveyor_motor,Routine inspection,Motor current and vibration within expected ranges,COMPLETED
+MNT-102,2026-01-06T10:30:00,conveyor_2,conveyor_motor,Belt tension check,Belt tension adjusted and conveyor passed operational test,COMPLETED
+MNT-103,2026-01-11T11:00:00,conveyor_2,controller,Drive protection test,Overload shutdown function responded during scheduled test,COMPLETED
+MNT-104,2026-01-13T08:45:00,conveyor_2,cooling_unit,Cooling flow inspection,Flow within normal operating range,COMPLETED

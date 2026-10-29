@@ -1,0 +1,95 @@
+{
+  "status": "AUTOMATED_CHECKS_PASSED",
+  "report": {
+    "incident_summary": "At 14:12 on 2026-01-15, conveyor 2 generated a MOTOR_TEMP_HIGH alarm indicating motor temperature of 69.06 °C. All other sensor readings (cooling flow ~11.9 L/min, motor current 7.89 A, conveyor speed 1.19 m/s, vibration 1.047 mm/s) remained within normal baseline ranges. No shutdown, speed reduction, or flow reduction was observed before or after the alarm.",
+    "leading_hypothesis": "The high temperature alarm was likely caused by a temperature sensor fault producing a sudden unrealistic temperature jump.",
+    "confidence": "moderate",
+    "root_cause_category": "temperature_sensor_fault",
+    "timeline": [
+      {
+        "timestamp": "2026-01-15T14:12:00",
+        "observation": "Motor temperature alarm triggered; sensor snapshot shows 69.06 °C while cooling flow, current, speed, and vibration remain normal.",
+        "evidence_reference": "EVT-001"
+      }
+    ],
+    "sensor_claims": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2026-01-15T14:12:00",
+        "sensor_values": {
+          "motor_temp_c": 69.06,
+          "cooling_flow_lpm": 11.88,
+          "motor_current_a": 7.89,
+          "conveyor_speed_mps": 1.19,
+          "vibration_mm_s": 1.047
+        }
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "source_type": "event",
+        "reference": "EVT-001",
+        "finding": "Reported motor temperature exceeded 65 °C; sensor snapshot recorded 69.06 °C with normal ancillary parameters."
+      },
+      {
+        "source_type": "manual",
+        "reference": "MOTOR_TEMP_HIGH",
+        "finding": "Triggered when motor temperature reaches 65 °C. Possible causes: insufficient cooling, excessive mechanical load, motor overheating, faulty temperature sensor."
+      },
+      {
+        "source_type": "manual",
+        "reference": "Procedure C — Temperature Sensor Fault",
+        "finding": "Look for sudden unrealistic temperature jumps and compare temperature changes with current, cooling flow, and operating conditions."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-004",
+        "finding": "On 2026-01-13, temperature sensor calibration completed; readings within calibration tolerance."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-002",
+        "finding": "On 2026-01-06, cooling filter cleaned; flow restored to normal."
+      }
+    ],
+    "alternative_explanations": [
+      "Insufficient cooling flow despite normal reading (possible sensor drift).",
+      "Excessive mechanical load causing internal motor heating without current increase.",
+      "Actual motor overheating due to internal fault not reflected in current or vibration.",
+      "Communication outage causing stale temperature data."
+    ],
+    "missing_evidence": [
+      "Independent temperature measurement (e.g., external thermocouple) to confirm sensor reading.",
+      "Detailed motor thermal imaging or infrared inspection.",
+      "Pressure or flow verification from a secondary flow sensor.",
+      "Controller log entries surrounding the alarm for possible software glitches."
+    ],
+    "recommended_checks": [
+      "Cross‑check motor temperature with an independent probe.",
+      "Inspect motor windings and bearings for signs of overheating.",
+      "Verify cooling system pressure and flow with a calibrated secondary sensor.",
+      "Review controller firmware logs for any communication errors at 14:12.",
+      "Perform a functional test of the temperature sensor after the next scheduled maintenance."
+    ]
+  },
+  "validation": {
+    "sensor_validation": {
+      "checked_measurements": 5,
+      "errors": [],
+      "passed": true
+    },
+    "reference_validation": {
+      "checked_references": 6,
+      "errors": [],
+      "passed": true
+    },
+    "maintenance_validation": {
+      "maintenance_references": 2,
+      "checked_date_references": 2,
+      "errors": [],
+      "citation_coverage": "citations_checked",
+      "passed": true
+    }
+  },
+  "note": "Structured evidence checks passed. Narrative and causal claims are not fully verified."
+}

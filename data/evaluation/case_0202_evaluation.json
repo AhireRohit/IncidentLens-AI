@@ -1,0 +1,9 @@
+{
+  "scenario": "case_0202",
+  "actual_root_cause": "temperature_sensor_fault",
+  "predicted_root_cause": "temperature_sensor_fault",
+  "correct": true,
+  "classification_score": 1,
+  "confidence": "moderate",
+  "evidence_checks_passed": true
+}

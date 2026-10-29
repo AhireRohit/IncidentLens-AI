@@ -1,0 +1,3 @@
+{"event_id": "EVT-001", "timestamp": "2026-01-15T14:16:53", "component": "conveyor_motor", "event_code": "MOTOR_CURRENT_HIGH", "message": "Motor current exceeded 12 A"}
+{"event_id": "EVT-002", "timestamp": "2026-01-15T14:17:22", "component": "conveyor_motor", "event_code": "CONVEYOR_SPEED_LOW", "message": "Conveyor speed dropped below 0.6 m/s"}
+{"event_id": "EVT-003", "timestamp": "2026-01-15T14:20:00", "component": "controller", "event_code": "DRIVE_OVERLOAD_TRIP", "message": "Controller stopped conveyor after sustained excessive load"}

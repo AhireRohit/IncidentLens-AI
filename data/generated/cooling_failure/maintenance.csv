@@ -1,0 +1,5 @@
+record_id,timestamp,machine_id,component,maintenance_type,observation,status
+MNT-001,2025-12-18T10:00:00,conveyor_2,cooling_unit,Routine inspection,Cooling flow within normal operating range,COMPLETED
+MNT-002,2026-01-06T09:30:00,conveyor_2,cooling_unit,Filter cleaning,Minor debris removed from cooling filter and flow restored to normal,COMPLETED
+MNT-003,2026-01-10T11:15:00,conveyor_2,conveyor_motor,Bearing inspection,No abnormal bearing wear detected,COMPLETED
+MNT-004,2026-01-13T15:40:00,conveyor_2,controller,Temperature sensor calibration,Temperature readings within calibration tolerance,COMPLETED

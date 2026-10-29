@@ -1,0 +1,9 @@
+{
+  "scenario": "cooling_failure",
+  "actual_root_cause": "cooling_flow_loss",
+  "predicted_root_cause": "cooling_flow_loss",
+  "correct": true,
+  "classification_score": 1,
+  "confidence": "moderate",
+  "evidence_checks_passed": true
+}

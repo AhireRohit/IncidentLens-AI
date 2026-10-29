@@ -1,0 +1,9 @@
+{
+  "scenario": "case_0202",
+  "machine_id": "conveyor_2",
+  "root_cause": "temperature_sensor_fault",
+  "fault_type": "intermittent_false_high_reading",
+  "fault_start": "2026-01-15T14:12:00",
+  "shutdown_time": null,
+  "seed": 202
+}

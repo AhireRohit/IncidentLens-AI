@@ -1,0 +1,9 @@
+{
+  "scenario": "case_0301",
+  "actual_root_cause": "mechanical_jam",
+  "predicted_root_cause": "mechanical_jam",
+  "correct": true,
+  "classification_score": 1,
+  "confidence": "moderate",
+  "evidence_checks_passed": true
+}

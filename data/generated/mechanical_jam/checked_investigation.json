@@ -1,0 +1,133 @@
+{
+  "status": "AUTOMATED_CHECKS_PASSED",
+  "report": {
+    "incident_summary": "Conveyor 2 stopped at 2026-01-15T14:20:00 after a sequence of motor current increase, speed drop, and a controller overload trip.",
+    "leading_hypothesis": "A mechanical obstruction (jam) caused the motor to draw excessive current, reduced conveyor speed, and triggered the drive overload protection.",
+    "confidence": "high",
+    "root_cause_category": "mechanical_jam",
+    "timeline": [
+      {
+        "timestamp": "2026-01-15T14:16:53",
+        "observation": "Motor current exceeded 12 A (12.05 A) while conveyor speed was still above the low‑speed threshold (0.684 m/s).",
+        "evidence_reference": "EVT-001"
+      },
+      {
+        "timestamp": "2026-01-15T14:17:22",
+        "observation": "Conveyor speed fell below 0.6 m/s (0.596 m/s) and motor current rose further to 12.61 A.",
+        "evidence_reference": "EVT-002"
+      },
+      {
+        "timestamp": "2026-01-15T14:20:00",
+        "observation": "Controller issued a drive overload trip; motor current dropped to 0 A, speed to 0 m/s, and vibration fell to idle level (0.15 mm/s).",
+        "evidence_reference": "EVT-003"
+      }
+    ],
+    "sensor_claims": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2026-01-15T14:16:53",
+        "sensor_values": {
+          "motor_temp_c": 46.94,
+          "motor_current_a": 12.05,
+          "conveyor_speed_mps": 0.684,
+          "vibration_mm_s": 2.272,
+          "cooling_flow_lpm": 12.01,
+          "controller_state": "RUNNING"
+        }
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2026-01-15T14:17:22",
+        "sensor_values": {
+          "motor_temp_c": 47.76,
+          "motor_current_a": 12.61,
+          "conveyor_speed_mps": 0.596,
+          "vibration_mm_s": 2.513,
+          "cooling_flow_lpm": 11.88,
+          "controller_state": "RUNNING"
+        }
+      },
+      {
+        "event_id": "EVT-003",
+        "timestamp": "2026-01-15T14:20:00",
+        "sensor_values": {
+          "motor_temp_c": 53.93,
+          "motor_current_a": 0.0,
+          "conveyor_speed_mps": 0.0,
+          "vibration_mm_s": 0.15,
+          "cooling_flow_lpm": 12.0,
+          "controller_state": "STOPPED"
+        }
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "source_type": "manual",
+        "reference": "MOTOR_CURRENT_HIGH",
+        "finding": "Triggered when motor current reaches or exceeds 12 A. Possible causes include mechanical obstruction or conveyor jam, excessive material load, increased belt friction, bearing or drive‑train resistance."
+      },
+      {
+        "source_type": "manual",
+        "reference": "CONVEYOR_SPEED_LOW",
+        "finding": "Triggered when conveyor speed falls to 0.6 m/s or below. Possible causes include mechanical jam, excessive belt resistance, drive‑train malfunction, motor or transmission problems."
+      },
+      {
+        "source_type": "manual",
+        "reference": "DRIVE_OVERLOAD_TRIP",
+        "finding": "Controller stops conveyor after sustained excessive‑load condition. Expected behavior: controller state STOPPED, motor current zero, speed zero, vibration at idle. Possible underlying causes: mechanical obstruction, excessive loading, bearing or drive‑train resistance."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-103",
+        "finding": "On 2026-01-11, drive protection test confirmed overload shutdown function responded as expected."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-102",
+        "finding": "On 2026-01-06, belt tension was adjusted and conveyor passed operational test."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-101",
+        "finding": "On 2025-12-19, routine inspection reported motor current and vibration within expected ranges."
+      }
+    ],
+    "alternative_explanations": [
+      "Excessive material load could have increased motor torque, raising current and reducing speed.",
+      "Bearing or drive‑train resistance (e.g., worn bearings) might have caused similar current and speed symptoms.",
+      "A transient temperature sensor fault could have mis‑reported motor temperature, but temperature remained within plausible range."
+    ],
+    "missing_evidence": [
+      "Physical inspection report of the conveyor belt and rollers at the time of the event.",
+      "Load sensor data or material feed rate measurements preceding the shutdown.",
+      "Detailed vibration frequency spectrum to differentiate jam from bearing wear.",
+      "Motor torque or power measurement logs."
+    ],
+    "recommended_checks": [
+      "Visually inspect conveyor for any mechanical obstruction or jammed material.",
+      "Verify belt tension and alignment; re‑adjust if out of spec.",
+      "Examine motor bearings and drive‑train for wear or resistance.",
+      "Review load/feed rate logs to assess whether an overload condition occurred.",
+      "Confirm calibration of motor current and speed sensors before restarting."
+    ]
+  },
+  "validation": {
+    "sensor_validation": {
+      "checked_measurements": 18,
+      "errors": [],
+      "passed": true
+    },
+    "reference_validation": {
+      "checked_references": 9,
+      "errors": [],
+      "passed": true
+    },
+    "maintenance_validation": {
+      "maintenance_references": 3,
+      "checked_date_references": 3,
+      "errors": [],
+      "passed": true
+    }
+  },
+  "note": "Structured evidence checks passed. Narrative and causal claims are not fully verified."
+}

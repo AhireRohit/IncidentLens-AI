@@ -1,0 +1,43 @@
+{
+  "status": "AUTOMATED_CHECKS_PASSED",
+  "report": {
+    "incident_summary": "Investigation of conveyor 2 between 14:00 and 14:30 found no logged events, no sensor anomalies, and no shutdown record. All sensor readings remained within normal operating ranges.",
+    "leading_hypothesis": "No equipment failure detected in the available evidence.",
+    "confidence": "high",
+    "root_cause_category": "no_fault",
+    "timeline": [],
+    "sensor_claims": [],
+    "supporting_evidence": [],
+    "alternative_explanations": [
+      "A failure could have occurred but was not captured by event logs or sensor thresholds were not exceeded."
+    ],
+    "missing_evidence": [
+      "Maintenance history for conveyor 2 is not available in the retrieved documentation.",
+      "Details of the event logging configuration for conveyor 2 are missing."
+    ],
+    "recommended_checks": [
+      "Verify that event logging is enabled and correctly configured for conveyor 2.",
+      "Confirm calibration and health status of all sensors on conveyor 2.",
+      "Perform a visual inspection of conveyor 2 for mechanical jams, wear, or other physical issues."
+    ]
+  },
+  "validation": {
+    "sensor_validation": {
+      "checked_measurements": 10806,
+      "errors": [],
+      "passed": true
+    },
+    "reference_validation": {
+      "checked_references": 0,
+      "errors": [],
+      "passed": true
+    },
+    "maintenance_validation": {
+      "maintenance_references": 0,
+      "checked_date_references": 0,
+      "errors": [],
+      "passed": true
+    }
+  },
+  "note": "Structured evidence checks passed. Narrative and causal claims are not fully verified."
+}

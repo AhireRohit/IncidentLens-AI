@@ -1,0 +1,9 @@
+{
+  "scenario": "normal",
+  "actual_root_cause": "no_fault",
+  "predicted_root_cause": "no_fault",
+  "correct": true,
+  "classification_score": 1,
+  "confidence": "high",
+  "evidence_checks_passed": true
+}

@@ -1,0 +1,144 @@
+{
+  "status": "AUTOMATED_CHECKS_PASSED",
+  "report": {
+    "incident_summary": "Conveyor 2 stopped at 14:20:22 on 2026-01-15 after a sequence of alarms: low cooling flow at 14:14, motor temperature exceeding 65 °C at 14:18, and a thermal shutdown at 14:20 when motor temperature reached 75 °C. The motor current and conveyor speed dropped to zero and the controller entered STOPPED state.",
+    "leading_hypothesis": "Insufficient cooling flow caused motor overheating, leading the controller to execute a thermal shutdown.",
+    "confidence": "moderate",
+    "root_cause_category": "cooling_flow_loss",
+    "timeline": [
+      {
+        "timestamp": "2026-01-15T14:14:00",
+        "observation": "Cooling flow alarm (flow 0.45 L/min) triggered; motor running at normal speed.",
+        "evidence_reference": "EVT-001"
+      },
+      {
+        "timestamp": "2026-01-15T14:18:17",
+        "observation": "Motor temperature alarm (65.08 °C) triggered while cooling flow remained low (0.56 L/min).",
+        "evidence_reference": "EVT-002"
+      },
+      {
+        "timestamp": "2026-01-15T14:20:22",
+        "observation": "Thermal shutdown executed; motor temperature 75.02 °C, motor current 0 A, conveyor speed 0 m/s, controller STOPPED.",
+        "evidence_reference": "EVT-003"
+      }
+    ],
+    "sensor_claims": [
+      {
+        "event_id": "EVT-001",
+        "timestamp": "2026-01-15T14:14:00",
+        "sensor_values": {
+          "motor_temp_c": 43.93,
+          "motor_current_a": 8.0,
+          "conveyor_speed_mps": 1.195,
+          "vibration_mm_s": 1.049,
+          "cooling_flow_lpm": 0.45,
+          "controller_state": "RUNNING"
+        }
+      },
+      {
+        "event_id": "EVT-002",
+        "timestamp": "2026-01-15T14:18:17",
+        "sensor_values": {
+          "motor_temp_c": 65.08,
+          "motor_current_a": 8.34,
+          "conveyor_speed_mps": 1.188,
+          "vibration_mm_s": 1.086,
+          "cooling_flow_lpm": 0.56,
+          "controller_state": "RUNNING"
+        }
+      },
+      {
+        "event_id": "EVT-003",
+        "timestamp": "2026-01-15T14:20:22",
+        "sensor_values": {
+          "motor_temp_c": 75.02,
+          "motor_current_a": 0.0,
+          "conveyor_speed_mps": 0.0,
+          "vibration_mm_s": 0.15,
+          "cooling_flow_lpm": 0.47,
+          "controller_state": "STOPPED"
+        }
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "source_type": "event",
+        "reference": "EVT-001",
+        "finding": "Cooling flow dropped to 0.45 L/min, below the 2 L/min threshold defined in the manual."
+      },
+      {
+        "source_type": "event",
+        "reference": "EVT-002",
+        "finding": "Motor temperature reached 65.08 °C, exceeding the 65 °C limit for MOTOR_TEMP_HIGH."
+      },
+      {
+        "source_type": "event",
+        "reference": "EVT-003",
+        "finding": "Controller issued THERMAL_SHUTDOWN at 75.02 °C, stopping the conveyor."
+      },
+      {
+        "source_type": "manual",
+        "reference": "COOLING_FLOW_LOW",
+        "finding": "Triggered when cooling flow falls below 2 L/min."
+      },
+      {
+        "source_type": "manual",
+        "reference": "MOTOR_TEMP_HIGH",
+        "finding": "Triggered when motor temperature reaches 65 °C."
+      },
+      {
+        "source_type": "manual",
+        "reference": "THERMAL_SHUTDOWN",
+        "finding": "Controller stops conveyor when motor temperature reaches 75 °C; expected zero speed and current."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-002",
+        "finding": "On 2026-01-06, cooling filter was cleaned and flow restored to normal."
+      },
+      {
+        "source_type": "maintenance",
+        "reference": "MNT-004",
+        "finding": "On 2026-01-13, temperature sensor calibration confirmed readings within tolerance."
+      }
+    ],
+    "alternative_explanations": [
+      "Faulty temperature sensor could have reported an artificially high temperature.",
+      "Mechanical jam or bearing failure could have increased motor load, raising temperature.",
+      "Communication outage between sensor and controller might have caused erroneous shutdown."
+    ],
+    "missing_evidence": [
+      "Independent verification of cooling flow (e.g., secondary flow meter).",
+      "Physical inspection of cooling pump, pipes, and valves for blockage or failure.",
+      "Cross‑check of motor temperature with an external temperature probe.",
+      "Controller log details surrounding the THERMAL_SHUTDOWN command."
+    ],
+    "recommended_checks": [
+      "Inspect cooling pump operation and verify pump pressure.",
+      "Examine cooling pipe and valve positions for obstructions or leaks.",
+      "Validate flow sensor accuracy with a calibrated reference flow meter.",
+      "Perform an independent temperature measurement on the motor housing.",
+      "Review controller firmware logs for any communication errors preceding shutdown.",
+      "Confirm that the cooling filter remains clean and that no debris has re‑accumulated."
+    ]
+  },
+  "validation": {
+    "sensor_validation": {
+      "checked_measurements": 18,
+      "errors": [],
+      "passed": true
+    },
+    "reference_validation": {
+      "checked_references": 11,
+      "errors": [],
+      "passed": true
+    },
+    "maintenance_validation": {
+      "maintenance_references": 2,
+      "checked_date_references": 2,
+      "errors": [],
+      "passed": true
+    }
+  },
+  "note": "Structured evidence checks passed. Narrative and causal claims are not fully verified."
+}

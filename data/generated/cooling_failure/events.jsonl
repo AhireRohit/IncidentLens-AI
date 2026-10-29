@@ -1,0 +1,3 @@
+{"event_id": "EVT-001", "timestamp": "2026-01-15T14:14:00", "component": "cooling_unit", "event_code": "COOLING_FLOW_LOW", "message": "Cooling flow dropped below operating range"}
+{"event_id": "EVT-002", "timestamp": "2026-01-15T14:18:17", "component": "conveyor_motor", "event_code": "MOTOR_TEMP_HIGH", "message": "Motor temperature exceeded 65 C"}
+{"event_id": "EVT-003", "timestamp": "2026-01-15T14:20:22", "component": "controller", "event_code": "THERMAL_SHUTDOWN", "message": "Controller stopped conveyor due to overheating"}

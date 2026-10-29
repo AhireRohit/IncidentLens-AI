@@ -1,0 +1,49 @@
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Logs and checkpoints
+*.log
+data/evaluation/batch_logs/
+**/evidence_checkpoint.json
+**/evidence_checkpoint.tmp
+**/raw_investigation.txt
+
+# Ignore generated scenarios by default
+data/generated/*
+
+# Keep four synthetic demo scenarios
+!data/generated/cooling_failure/
+!data/generated/mechanical_jam/
+!data/generated/normal/
+!data/generated/case_0202/
+
+# Only include necessary demo files
+data/generated/*/*
+!data/generated/*/sensor_readings.csv
+!data/generated/*/events.jsonl
+!data/generated/*/maintenance.csv
+!data/generated/*/checked_investigation.json
+# Local archives and backups
+*.zip
+GITIGNORE_ADD.txt
+investigator/agent_graph_backup.py
+
+# Additional secret protection
+.streamlit/secrets.toml
+# Superseded agent versions
+investigator/agent_graph_checkpoint_fixed.py
+investigator/agent_graph_checkpoint_v2.py
+
+# Keep ground truth only for published demo datasets
+data/ground_truth/case_*.json
+!data/ground_truth/case_0202.json
