@@ -1,4 +1,6 @@
 # IncidentLens — AI Incident Investigator
+**🌐 [Live Dashboard](https://incidentlens-aii.streamlit.app/)** · [GitHub Repository](https://github.com/AhireRohit/IncidentLens-AI)
+
 
 **Explainable investigation of simulated industrial equipment incidents using LangGraph, Groq, time-series telemetry, event logs, equipment documentation, and maintenance history.**
 
